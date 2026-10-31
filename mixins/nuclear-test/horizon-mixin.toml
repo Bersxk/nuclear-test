@@ -1,0 +1,14 @@
+[mod]
+id = "nuclear-test"
+version = "0.1.0"
+priority = 100
+
+[compatibility]
+horizon_revision = "4baa571566e39bfd6594988d3bb2bc85440c30e7"
+
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hud.rs"
+bindings = []
