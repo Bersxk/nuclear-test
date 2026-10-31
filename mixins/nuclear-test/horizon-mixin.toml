@@ -4,7 +4,6 @@ schema = 1
 id = "nuclear-test"
 version = "0.1.0"
 game = "horizon"
-priority = 100
 
 [compatibility]
 horizon_revision = "af55a734865da4f1b11836164a979ff06a1f0449"
