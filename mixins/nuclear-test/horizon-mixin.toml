@@ -1,23 +1,22 @@
+schema = 1
+
 [mod]
 id = "nuclear-test"
 version = "0.1.0"
+game = "horizon"
 priority = 100
 
 [compatibility]
-horizon_revision = "4baa571566e39bfd6594988d3bb2bc85440c30e7"
+horizon_revision = "af55a734865da4f1b11836164a979ff06a1f0449"
+horizon_mixins_revision = "4baa571566e39bfd6594988d3bb2bc85440c30e7"
 
 [[injection]]
 id = "hud"
 kind = "HEAD"
 target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
 helper = "hud.rs"
-bindings = []
-schema = 1
-
-[mod]
-id = "nuclear-test"
-version = "0.1.0"
-
-[compatibility]
-horizon_revision = "4baa571566e39bfd6594988d3bb2bc85440c30e7" # или другой точный коммит
-# Возможно, также нужно указать точную ревизию для horizon-mixins
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "batch", ty = "&mut horizon_client::hud::HudBatch", value = "&mut *batch" },
+  { name = "corners", ty = "&mut horizon_client::extras_hud::Corners", value = "&mut *corners" },
+]
